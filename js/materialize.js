@@ -560,6 +560,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       each(eventCache, function (event) {
         node.removeEventListener(eventName, event);
       });
+
       eventCache = [];
     }
   }

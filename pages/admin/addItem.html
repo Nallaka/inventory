@@ -27,42 +27,53 @@
   <body>
     <div class="container">
       <div class="row">
-        <form class="col s12">
-          <div class="input-field col s6">
-            <input id="item_upc" type="number" class="validate">
-            <label for="item_upc">Item UPC</label>
+        <div class="col s12">
+          <div class="card white">
+            <div class="card-content grey-text center-align">
+              <span class="card-title">Add Item</span>
+              <div class="container">
+                <div class="row">
+                  <form>
+                    <div class="input-field col s6">
+                      <input id="item_upc" type="number" class="validate">
+                      <label for="item_upc">Item UPC</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input id="item_name" type="text" class="validate">
+                      <label for="item_name">Item Name</label>
+                    </div>
+                    <div class="input-field col s12">
+                      <input id="item_description" type="text" class="validate">
+                      <label for="item_description">Item Description</label>
+                    </div>
+                    <div class="input-field col s3">
+                      <input id="item_bin_number" type="number" class="validate">
+                      <label for="item_bin_number">Item Bin Number</label>
+                    </div>
+                    <div class="input-field col s3">
+                      <input id="item_total_stock" type="number" class="validate">
+                      <label for="item_total_stock">Item's Total Stock</label>
+                    </div>
+                    <div class="input-field col s3">
+                      <input id="item_in_stock" type="number" class="validate">
+                      <label for="item_in_stock">Items In Stock</label>
+                    </div>
+                    <div class="input-field col s3">
+                      <input value = 0 id="item_on_hand" type="number" class="validate">
+                      <label for="item_on_hand">Items On Hand</label>
+                    </div>
+                    <div class="col s12">
+                      <label>
+                        <input type="checkbox" class="filled-in"/>
+                        <span>Consumable</span>
+                      </label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="input-field col s6">
-          <input id="item_name" type="text" class="validate">
-          <label for="item_name">Item Name</label>
-          </div>
-          <div class="input-field col s12">
-            <input id="item_description" type="text" class="validate">
-            <label for="item_description">Item Description</label>
-          </div>
-          <div class="input-field col s3">
-            <input id="item_bin_number" type="number" class="validate">
-            <label for="item_bin_number">Item Bin Number</label>
-          </div>
-          <div class="input-field col s3">
-            <input id="item_total_stock" type="number" class="validate">
-            <label for="item_total_stock">Item's Total Stock</label>
-          </div>
-          <div class="input-field col s3">
-            <input id="item_in_stock" type="number" class="validate">
-            <label for="item_in_stock">Items In Stock</label>
-          </div>
-          <div class="input-field col s3">
-            <input value = 0 id="item_on_hand" type="number" class="validate">
-            <label for="item_on_hand">Items On Hand</label>
-          </div>
-          <div class="col s12">
-            <label>
-              <input type="checkbox" class="filled-in"/>
-              <span>Consumable</span>
-            </label>
-          </div>
-        </form>
+        </div>
       </div>
       <div class="row center-align">
         <button class="btn waves-effect waves-light blue" type="submit" name="addItem">Add Item
