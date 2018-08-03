@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+  <nav>
+    <div class="nav-wrapper blue">
+      <a href="#" class="brand-logo center blue">Brentwood Robotics</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="../../index.html">Home</a></li>
+        <li class="active"><a href="admin.html">Admin</a></li>
+        <li><a href="../inventory/checkin.html">Check-In</a></li>
+        <li><a href="../inventory/checkout.html">Checkout</a></li>
+        <li><a href="../../test.html">Test</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <form class="col s12">
+          <div class="input-field col s6">
+            <input id="item_upc" type="number" class="validate">
+            <label for="item_upc">Item UPC</label>
+          </div>
+          <div class="input-field col s6">
+          <input id="item_name" type="text" class="validate">
+          <label for="item_name">Item Name</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="item_description" type="text" class="validate">
+            <label for="item_description">Item Description</label>
+          </div>
+          <div class="input-field col s3">
+            <input id="item_bin_number" type="number" class="validate">
+            <label for="item_bin_number">Item Bin Number</label>
+          </div>
+          <div class="input-field col s3">
+            <input id="item_total_stock" type="number" class="validate">
+            <label for="item_total_stock">Item's Total Stock</label>
+          </div>
+          <div class="input-field col s3">
+            <input id="item_in_stock" type="number" class="validate">
+            <label for="item_in_stock">Items In Stock</label>
+          </div>
+          <div class="input-field col s3">
+            <input value = 0 id="item_on_hand" type="number" class="validate">
+            <label for="item_on_hand">Items On Hand</label>
+          </div>
+          <div class="col s12">
+            <label>
+              <input type="checkbox" class="filled-in"/>
+              <span>Consumable</span>
+            </label>
+          </div>
+        </form>
+      </div>
+      <div class="row center-align">
+        <button class="btn waves-effect waves-light blue" type="submit" name="addItem">Add Item
+          <i class="material-icons right">add</i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Firebase Setup -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+    <script src="../../js/config.js"></script>
+
+    <!-- Materialize Setup -->
+    <script type="text/javascript" src="../../js/materialize.min.js"></script>
+
+    <!-- Firebase Inventory Setup -->
+    <script src="../../js/inventory.js"></script>
+    <script src="../../js/item.js"></script>
+    <script src="../../js/user.js"></script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+  <nav>
+    <div class="nav-wrapper blue">
+      <a href="#" class="brand-logo center blue">Brentwood Robotics</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pages/admin/admin.html">Admin</a></li>
+        <li><a href="pages/inventory/checkin.html">Check-In</a></li>
+        <li><a href="pages/inventory/checkout.html">Checkout</a></li>
+        <li class="active"><a href="test.html">Test</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+  <div class="container">
+    <a class="btn" onclick="addItem('test', 1, 'Testing Item', 1, true, 1, 1, 0)">Add Item</a>
+    <a class="btn" onclick="getItemByID(1)">Get Item</a>
+    <a class="btn" onclick="getItemName(1)">Get Item Name</a>
+    <a class="btn" onclick="getItemUpc(1)">Get Item UPC</a>
+    <a class="btn" onclick="getItemDescription(1)">Get Item Description</a>
+    <a class="btn" onclick="getItemBinNumber(1)">Get Item Bin</a>
+    <a class="btn" onclick="isItemConsumable(1)">Get Item Consumable</a>
+    <a class="btn" onclick="getItemTotalStock(1)">Get Total Item Stock</a>
+    <a class="btn" onclick="getItemInStock(1)">Get Item In Stock</a>
+    <a class="btn" onclick="getItemOnHand(1)">Get Item On Hand</a>
+    <a class="btn" onclick="checkOutItem(1, 1)">Checkout Item</a>
+    <a class="btn" onclick="checkInItem(1,1)">Check-in Item</a>
+    <a class="btn" onclick="removeItem(1)">Remove Item</a>
+  </div>
+
+  <body>
+  <!-- Firebase Setup -->
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+  <script src="js/config.js"></script>
+
+  <!-- Materialize Setup -->
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+
+  <!-- Firebase Inventory Setup -->
+  <script src="js/inventory.js"></script>
+  <script src="js/item.js"></script>
+  <script src="js/user.js"></script>
+  </body>
+</html>

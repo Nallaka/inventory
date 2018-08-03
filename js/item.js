@@ -1,11 +1,12 @@
-function createItem(name, upc, description, binNumber, consumable, stock, onHand) {
+function createItem(name, upc, description, binNumber, consumable, totalStock, inStock, onHand) {
   return {
     name: name,
     upc: upc,
     description: description,
     binNumber: binNumber,
     consumable: consumable,
-    stock: stock,
+    totalStock: totalStock,
+    inStock: inStock,
     onHand: onHand
   }
 }
@@ -26,8 +27,12 @@ function getItemBinNumber(upc) {
   console.log(getItemByID(upc).binNumber)
 }
 
-function getItemStock(upc) {
-  console.log(getItemByID(upc).stock)
+function getItemTotalStock(upc) {
+  console.log(getItemByID(upc).totalStock)
+}
+
+function getItemInStock(upc) {
+  console.log(getItemByID(upc).inStock)
 }
 
 function getItemOnHand(upc) {
