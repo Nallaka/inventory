@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+  <button type="button" onclick="addItem('test', 1, 'Testing Item', 1, true, 1, 0)">Add Item</button>
+  <button type="button" onclick="getItemByID(1)">Get Item</button>
+  <button type="button" onclick="getItemName(1)">Get Item Name</button>
+  <button type="button" onclick="getItemUpc(1)">Get Item UPC</button>
+  <button type="button" onclick="getItemDescription(1)">Get Item Description</button>
+  <button type="button" onclick="getItemBinNumber(1)">Get Item Bin</button>
+  <button type="button" onclick="isItemConsumable(1)">Get Item Consumable</button>
+  <button type="button" onclick="getItemStock(1)">Get Item Stock</button>
+  <button type="button" onclick="getItemOnHand(1)">Get Item On Hand</button>
+
+  <!-- Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/inventory.js"></script>
+  <script src="js/item.js"></script>
+  <script src="js/user.js"></script>
+
+</html>
