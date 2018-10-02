@@ -23,6 +23,10 @@ function getItemByID(upc) {
     return item;
 }
 
+function itemExists(upc) {
+    return getItemByID(upc) != null
+}
+
 function checkOutItem(upc, countToCheckOut) {
     var item = getItemByID(upc);
 
