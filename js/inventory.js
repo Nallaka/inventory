@@ -1,4 +1,4 @@
-var inventory = firebase.database();
+let inventory = firebase.database();
 
 function getInvRef(upc, children) {
     return inventory.ref('inventory/' + upc.toString() + '/' + children)
@@ -13,7 +13,7 @@ function removeItem(upc) {
 }
 
 function getItemByID(upc) {
-    var item = null;
+    let item = null;
     getInvRef(upc, '').on('value',
         function (dataSnapshot) {
             console.log(dataSnapshot.val());
@@ -28,7 +28,7 @@ function itemExists(upc) {
 }
 
 function checkOutItem(upc, countToCheckOut) {
-    var item = getItemByID(upc);
+    let item = getItemByID(upc);
 
     if (countToCheckOut > item.inStock) {
         console.log('ERROR: Checkout FAILED - Items inStock not sufficient');
@@ -41,7 +41,7 @@ function checkOutItem(upc, countToCheckOut) {
 }
 
 function checkInItem(upc, countToCheckIn) {
-    var item = getItemByID(upc);
+    let item = getItemByID(upc);
 
     if (countToCheckIn > item.onHand) {
         console.log('ERROR: Check-in FAILED - Items onHand not sufficient');
