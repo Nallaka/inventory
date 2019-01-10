@@ -1,24 +1,37 @@
-let inventory = firebase.database();
+let db = firebase.firestore();
 
-function getInvRef(upc, children) {
-    return inventory.ref('inventory/' + upc.toString() + '/' + children)
+function getItemRef(upc) {
+    return db.collection("inventory").doc(upc.toString())
 }
 
-function addItem(name, upc, description, binNumber, consumable, totalStock, inStock, onHand) {
-    getInvRef(upc, '').set(createItem(name, upc, description, binNumber, consumable, totalStock, inStock, onHand))
+function addItem(name, upc, description, binNumber, consumable, totalStock, inStore, onHand) {
+    getItemRef(upc).set(createItem(name, upc, description, binNumber, consumable, totalStock, inStore, onHand))
+        .then(function() {
+            console.log("Item " + name + " Added Successfully")
+        })
+        .catch(function (error) {
+            console.error("Error Adding Item: ", error)
+        })
 }
 
 function removeItem(upc) {
-    getInvRef(upc, '').remove()
+    getItemRef(upc).remove()
 }
 
 function getItemByID(upc) {
     let item = null;
-    getInvRef(upc, '').on('value',
-        function (dataSnapshot) {
-            console.log(dataSnapshot.val());
-            item = dataSnapshot.val()
-        });
+    let itemRef = getItemRef(upc.toString());
+
+    itemRef.get().then(function(doc) {
+        if(doc.exists) {
+            item = doc.data();
+            console.log(item)
+        } else {
+            console.error("Item Does not Exist")
+        }
+    }).catch(function (error) {
+        console.error("Error Retrieving Item: " + error)
+    });
 
     return item;
 }
@@ -30,12 +43,12 @@ function itemExists(upc) {
 function checkOutItem(upc, countToCheckOut) {
     let item = getItemByID(upc);
 
-    if (countToCheckOut > item.inStock) {
+    if (countToCheckOut > item.inStore) {
         console.log('ERROR: Checkout FAILED - Items inStock not sufficient');
         return false;
     } else {
-        getInvRef(upc, 'inStock/').set(item.inStock - countToCheckOut);
-        getInvRef(upc, 'onHand/').set(item.onHand + countToCheckOut);
+        getItemRef(upc, 'inStock/').set(item.inStore - countToCheckOut);
+        getItemRef(upc, 'onHand/').set(item.onHand + countToCheckOut);
         return true;
     }
 }
@@ -47,8 +60,8 @@ function checkInItem(upc, countToCheckIn) {
         console.log('ERROR: Check-in FAILED - Items onHand not sufficient');
         return false;
     } else {
-        getInvRef(upc, 'inStock/').set(item.inStock + countToCheckIn);
-        getInvRef(upc, 'onHand/').set(item.onHand - countToCheckIn);
+        getItemRef(upc, 'inStock/').set(item.inStore + countToCheckIn);
+        getItemRef(upc, 'onHand/').set(item.onHand - countToCheckIn);
         return true;
     }
 }
