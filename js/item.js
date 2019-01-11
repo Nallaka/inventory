@@ -12,33 +12,41 @@ function createItem(name, upc, description, binNumber, consumable, totalStock, i
 }
 
 function getItemName(upc) {
-    console.log(getItemByID(upc).name)
+    console.log(getItemByID(upc.toString()).name);
+    return getItemByID(upc.toString())
 }
 
 function getItemUpc(upc) {
-    console.log(getItemByID(upc).upc)
+    console.log(getItemByID(upc.toString()).upc);
+    return getItemByID(upc.toString()).upc;
 }
 
 function getItemDescription(upc) {
-    console.log(getItemByID(upc).description)
+    console.log(getItemByID(upc.toString()).description);
+    return getItemByID(upc.toString()).description;
 }
 
 function getItemBinNumber(upc) {
-    console.log(getItemByID(upc).binNumber)
+    console.log(getItemByID(upc.toString()).binNumber);
+    return getItemByID(upc.toString()).binNumber;
 }
 
 function getItemTotalStock(upc) {
-    console.log(getItemByID(upc).totalStock)
+    console.log(getItemByID(upc.toString()).totalStock);
+    return getItemByID(upc.toString()).totalStock;
 }
 
 function getItemInStore(upc) {
-    console.log(getItemByID(upc).inStore)
+    console.log(getItemByID(upc.toString()).inStore);
+    return getItemByID(upc.toString()).inStore;
 }
 
 function getItemOnHand(upc) {
-    console.log(getItemByID(upc).onHand)
+    console.log(getItemByID(upc.toString()).onHand);
+    return getItemByID(upc.toString()).onHand;
 }
 
 function isItemConsumable(upc) {
-    console.log(getItemByID(upc).consumable)
+    console.log(getItemByID(upc.toString()).consumable);
+    return getItemByID(upc.toString()).consumable
 }

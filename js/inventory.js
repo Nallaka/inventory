@@ -1,4 +1,6 @@
 let db = firebase.firestore();
+const settings = {timestampsInSnapshots: true};
+db.settings(settings);
 
 function getItemRef(upc) {
     return db.collection("inventory").doc(upc.toString())
@@ -18,22 +20,37 @@ function removeItem(upc) {
     getItemRef(upc).remove()
 }
 
-function getItemByID(upc) {
+async function getItemByID(upc) {
     let item = null;
-    let itemRef = getItemRef(upc.toString());
-
-    itemRef.get().then(function(doc) {
-        if(doc.exists) {
-            item = doc.data();
-            console.log(item)
+    let docRef = db.collection("inventory").doc(upc.toString());
+    await docRef.get().then(function(doc) {
+        if (doc.exists) {
+            console.log("Doc Retrieved");
+            document = doc.data();
+            return doc.data();
         } else {
-            console.error("Item Does not Exist")
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
         }
-    }).catch(function (error) {
-        console.error("Error Retrieving Item: " + error)
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
     });
 
     return item;
+}
+
+async function test(docRef) {
+   await docRef.get().then(function(doc) {
+        if (doc.exists) {
+            console.log("Doc Retrieved");
+            return doc.data();
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
+    });
 }
 
 function itemExists(upc) {
